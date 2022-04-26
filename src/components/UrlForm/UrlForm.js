@@ -14,9 +14,8 @@ class UrlForm extends Component {
   }
 
   handleSubmit = e => {
-    e.preventDefault();
     this.clearInputs();
-    const newURLCard = { ...this.state, id: Date.now() }
+    const newURLCard = { id: Date.now(), title: this.state.title, long_url: this.state.urlToShorten }
     console.log('new', newURLCard)
     this.props.shortenNewURL(newURLCard)
   }
