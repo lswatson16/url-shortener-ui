@@ -25,7 +25,8 @@ export class App extends Component {
   }
 
   shortenNewURL = (newCard) => {
-    console.log('here')
+    this.setState({ urls: [...this.state.urls, newCard] })
+    console.log(this.state.urls)
   }
 
   render() {
