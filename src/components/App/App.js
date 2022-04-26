@@ -24,12 +24,16 @@ export class App extends Component {
       })
   }
 
+  shortenNewURL = (newCard) => {
+    console.log('here')
+  }
+
   render() {
     return (
       <main className="App">
         <header>
           <h1>URL Shortener</h1>
-          <UrlForm />
+          <UrlForm shortenNewURL={this.shortenNewURL} />
         </header>
 
         <UrlContainer urls={this.state.urls}/>
