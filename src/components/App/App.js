@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { getUrls } from '../../apiCalls';
-// import UrlContainer from '../UrlContainer/UrlContainer';
+import UrlContainer from '../UrlContainer/UrlContainer';
 import UrlForm from '../UrlForm/UrlForm';
 
 export class App extends Component {
@@ -16,7 +16,7 @@ export class App extends Component {
   componentDidMount() {
     getUrls()
       .then(urlData => {
-        this.setState({ urls: urlData })
+        this.setState({ urls: urlData.urls })
       })
       .catch(error => {
         console.log(error)
@@ -32,7 +32,7 @@ export class App extends Component {
           <UrlForm />
         </header>
 
-        {/* <UrlContainer urls={this.state.urls}/> */}
+        <UrlContainer urls={this.state.urls}/>
       </main>
     );
   }
