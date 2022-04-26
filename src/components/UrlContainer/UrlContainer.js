@@ -1,11 +1,19 @@
 import React from 'react';
 import './UrlContainer.css';
+import URLCard from '../URLCard/URLCard';
 
 const UrlContainer = ({ urls }) => {
   console.log(urls)
-  const urlEls = urls.map(url => {
+  const urlEls = urls.map((url, index) => {
     return (
       <div className="url">
+        <URLCard 
+          title={url.title}
+          id={url.id}
+          key={index}
+          short={url.short_url}
+          long={url.long_url}
+        />
         {/* <h3>{url.title}</h3>
         <a href={url.short_url} target="blank">{url.short_url}</a>
         <p>{url.long_url}</p> */}
@@ -15,7 +23,7 @@ const UrlContainer = ({ urls }) => {
 
   return (
     <section>
-      {/* { urlEls.length ? urlEls : <p>No urls yet! Find some to shorten!</p> } */}
+      { urlEls.length ? urlEls : <p>No urls yet! Find some to shorten!</p> }
     </section>
   )
 }
