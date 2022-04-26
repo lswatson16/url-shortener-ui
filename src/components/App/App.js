@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { getUrls } from '../../apiCalls';
+import { getUrls, postURL } from '../../apiCalls';
 import UrlContainer from '../UrlContainer/UrlContainer';
 import UrlForm from '../UrlForm/UrlForm';
 
@@ -27,6 +27,7 @@ export class App extends Component {
   shortenNewURL = (newCard) => {
     this.setState({ urls: [...this.state.urls, newCard] })
     console.log(this.state.urls)
+    postURL(newCard)
   }
 
   render() {
