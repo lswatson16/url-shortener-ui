@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 
 class UrlForm extends Component {
   constructor(props) {
-    super();
-    this.props = props;
+    super(props)
     this.state = {
       title: '',
       urlToShorten: ''
-    };
+    }
   }
 
   handleNameChange = e => {
