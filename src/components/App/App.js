@@ -1,18 +1,27 @@
 import React, { Component } from 'react';
 import './App.css';
 import { getUrls } from '../../apiCalls';
-import UrlContainer from '../UrlContainer/UrlContainer';
+// import UrlContainer from '../UrlContainer/UrlContainer';
 import UrlForm from '../UrlForm/UrlForm';
 
 export class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      urls: []
+      urls: [],
+      error: ''
     }
   }
 
   componentDidMount() {
+    getUrls()
+      .then(urlData => {
+        this.setState({ urls: urlData })
+      })
+      .catch(error => {
+        console.log(error)
+        this.setState({ error: 'Oops... The team is wroking on resolving the issue' })
+      })
   }
 
   render() {
@@ -23,7 +32,7 @@ export class App extends Component {
           <UrlForm />
         </header>
 
-        <UrlContainer urls={this.state.urls}/>
+        {/* <UrlContainer urls={this.state.urls}/> */}
       </main>
     );
   }
